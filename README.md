@@ -1,0 +1,5 @@
+# ChatOnline
+一个在线聊天系统雏形
+这是一个最初始的版本，仅仅实现了互相对话的功能。
+有一重大缺陷就是没有设置下拉条导致一旦textArea被填满就无法显示了。
+解决方法：在JPanel中加入一个JScrollPane，将textArea放入JScrollPane中。
