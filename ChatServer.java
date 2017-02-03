@@ -18,7 +18,7 @@ public class ChatServer
 		new ChatServer().start();
 	}
 	
-	public void start() //启动方法
+	public void start() //鍚姩鏂规硶
 	{
 		try
 		{
@@ -37,7 +37,7 @@ public class ChatServer
 
 	}
 	
-	class Client implements Runnable //客户端内部类
+	class Client implements Runnable //瀹㈡埛绔唴閮ㄧ被
 	{
 		Socket s = null;
 		boolean connect = false;
