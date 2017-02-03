@@ -1,0 +1,16 @@
+1.	问题：main函数中无法new一个内部类对象 （main函数是static 要使用类内变量，必须是静态的）
+	解决方法： 将要写入main函数的代码封装到一个函数中，main函数仅仅调用这个函数。
+
+2. 	问题：EventQueue.invokeLater(new Runnable()) 这个到底是干什么？
+   	解决方法： 把这个事件（new Runnable())添加到awt的事件处理线程当中去
+			 awt的事件处理线程会按照队列的顺序依次调用每个待处理的事件来运行 
+			 使用该方式的原因是：awt是单线程模式的，所有awt的组件只能在(推荐方式)事件处理线程中访问，从而保证组件状态的可确定性。
+
+3.	trim()：去除字符串前后的空白字符
+	BufferedReader br = new BufferedReader(new InputStreamReader(System.in));
+	获取控制台输入的常用手段
+	DataOutputStream 网络传输常用流 writeUTF();
+
+4.	对线程模型的理解：
+	我刚开始竟然疑惑于start()方法中的while循环不会卡住吗？
+	很奇怪，只是调用了一个Thread().start().怎么可能卡住...
