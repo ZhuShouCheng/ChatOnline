@@ -18,7 +18,7 @@ public class ChatServer
 		new ChatServer().start();
 	}
 	
-	public void start()
+	public void start() //启动方法
 	{
 		try
 		{
@@ -36,7 +36,8 @@ public class ChatServer
 		}
 
 	}
-	class Client implements Runnable
+	
+	class Client implements Runnable //客户端内部类
 	{
 		Socket s = null;
 		boolean connect = false;
@@ -66,7 +67,7 @@ public class ChatServer
 				while ((str = dis.readUTF()) != null)
 				{
 					record.append(str+"\n");
-					System.out.println(str);
+//					System.out.println(str);
 				}
 			}
 			catch (IOException e)

@@ -5,6 +5,7 @@ import java.awt.TextArea;
 
 import javax.swing.JFrame;
 import javax.swing.JPanel;
+import javax.swing.JScrollPane;
 import javax.swing.border.EmptyBorder;
 import javax.xml.stream.events.StartDocument;
 import javax.swing.JTextArea;
@@ -39,11 +40,11 @@ public class ChatClient extends JFrame
 	private StringBuilder record = null;
 	private JTextArea textArea;
 	
-	public void connect()
+	public void connect()//连接服务器
 	{
 		try
 		{
-			s = new Socket("192.168.0.106", 6666);
+			s = new Socket("192.168.0.112", 6666);
 			dos = new DataOutputStream(s.getOutputStream());
 			connect =true;
 		}
@@ -57,7 +58,7 @@ public class ChatClient extends JFrame
 		}
 	}
 	
-	public void disconnect()
+	public void disconnect() //断开连接
 	{
 		try
 		{
@@ -78,6 +79,7 @@ public class ChatClient extends JFrame
 			DataInputStream dis = new DataInputStream(s.getInputStream());
 			String string = dis.readUTF();
 			textArea.setText(string);
+			textArea.setCaretPosition(textArea.getText().length());
 		}
 		catch (IOException e)
 		{
@@ -87,6 +89,7 @@ public class ChatClient extends JFrame
 	/**
 	 * Launch the application.
 	 */
+	
 	public static void main(String[] args)
 	{
 		EventQueue.invokeLater(new Runnable() {
@@ -94,7 +97,7 @@ public class ChatClient extends JFrame
 			{
 				try
 				{
-					ChatClient frame = new ChatClient();
+					ChatClient frame = new ChatClient("在线聊天系统");
 					frame.launch();
 				}
 				catch (Exception e)
@@ -106,7 +109,7 @@ public class ChatClient extends JFrame
 		
 	}
 	
-	public void launch()
+	public void launch()//开始运行
 	{
 		try
 		{
@@ -123,8 +126,9 @@ public class ChatClient extends JFrame
 	/**
 	 * Create the frame.
 	 */
-	public ChatClient()
+	public ChatClient(String s)	//构造方法
 	{
+		super(s);
 		record = new StringBuilder();
 		addWindowListener(new WindowAdapter() {
 			@Override
@@ -143,7 +147,7 @@ public class ChatClient extends JFrame
 		
 		textArea = new JTextArea();
 		textArea.setFont(new Font("Monospaced", Font.PLAIN, 20));
-		contentPane.add(textArea, BorderLayout.CENTER);
+		contentPane.add(new JScrollPane(textArea));
 		
 		textField = new JTextField();
 		textField.setFont(new Font("宋体", Font.PLAIN, 20));
@@ -177,7 +181,7 @@ public class ChatClient extends JFrame
 		textField.setColumns(10);
 	}
 	
-	class Show implements Runnable
+	class Show implements Runnable //聊天记录框的显示
 	{
 
 		@Override
@@ -200,7 +204,7 @@ public class ChatClient extends JFrame
 		
 	}
 	
-	public void InputName()
+	public void InputName() //输入个人名称
 	{
 		try
 		{
