@@ -40,7 +40,7 @@ public class ChatClient extends JFrame
 	private StringBuilder record = null;
 	private JTextArea textArea;
 	
-	public void connect()//Á¬½Ó·şÎñÆ÷
+	public void connect()//è¿æ¥æœåŠ¡å™¨
 	{
 		try
 		{
@@ -58,7 +58,7 @@ public class ChatClient extends JFrame
 		}
 	}
 	
-	public void disconnect() //¶Ï¿ªÁ¬½Ó
+	public void disconnect() //æ–­å¼€è¿æ¥
 	{
 		try
 		{
@@ -97,7 +97,7 @@ public class ChatClient extends JFrame
 			{
 				try
 				{
-					ChatClient frame = new ChatClient("ÔÚÏßÁÄÌìÏµÍ³");
+					ChatClient frame = new ChatClient("åœ¨çº¿èŠå¤©ç³»ç»Ÿ");
 					frame.launch();
 				}
 				catch (Exception e)
@@ -109,7 +109,7 @@ public class ChatClient extends JFrame
 		
 	}
 	
-	public void launch()//¿ªÊ¼ÔËĞĞ
+	public void launch()//å¼€å§‹è¿è¡Œ
 	{
 		try
 		{
@@ -126,7 +126,7 @@ public class ChatClient extends JFrame
 	/**
 	 * Create the frame.
 	 */
-	public ChatClient(String s)	//¹¹Ôì·½·¨
+	public ChatClient(String s)	//æ„é€ æ–¹æ³•
 	{
 		super(s);
 		record = new StringBuilder();
@@ -150,7 +150,7 @@ public class ChatClient extends JFrame
 		contentPane.add(new JScrollPane(textArea));
 		
 		textField = new JTextField();
-		textField.setFont(new Font("ËÎÌå", Font.PLAIN, 20));
+		textField.setFont(new Font("å®‹ä½“", Font.PLAIN, 20));
 		textField.addKeyListener(new KeyAdapter() {
 			@Override
 			public void keyPressed(KeyEvent arg0) {
@@ -181,7 +181,7 @@ public class ChatClient extends JFrame
 		textField.setColumns(10);
 	}
 	
-	class Show implements Runnable //ÁÄÌì¼ÇÂ¼¿òµÄÏÔÊ¾
+	class Show implements Runnable //èŠå¤©è®°å½•æ¡†çš„æ˜¾ç¤º
 	{
 
 		@Override
@@ -204,7 +204,7 @@ public class ChatClient extends JFrame
 		
 	}
 	
-	public void InputName() //ÊäÈë¸öÈËÃû³Æ
+	public void InputName() //è¾“å…¥ä¸ªäººåç§°
 	{
 		try
 		{
